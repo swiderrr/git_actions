@@ -5,13 +5,11 @@ import datetime
 import os
 
 
-try:
-    credentials = pika.PlainCredentials(os.getenv('RABBITMQ_USER', 'guest'), password=os.getenv('RABBITMQ_PASSWORD', 'guest'))
-    connection = pika.BlockingConnection(pika.ConnectionParameters(host=os.getenv('RABBITMQ_HOST', 'localhost'), port=os.getenv('RABBITMQ_PORT', '5672'), heartbeat=0, blocked_connection_timeout=300, credentials=credentials))
-    channel = connection.channel()
-    channel.queue_declare(queue=os.getenv('CONSUMER_QUEUE', 'blue'))
-except Exception as err_conn:
-    print(err_conn)
+
+credentials = pika.PlainCredentials(os.getenv('RABBITMQ_USER', 'guest'), password=os.getenv('RABBITMQ_PASSWORD', 'guest'))
+connection = pika.BlockingConnection(pika.ConnectionParameters(host=os.getenv('RABBITMQ_HOST', 'localhost'), port=os.getenv('RABBITMQ_PORT', 5672), heartbeat=0, blocked_connection_timeout=300, credentials=credentials))
+channel = connection.channel()
+channel.queue_declare(queue=os.getenv('CONSUMER_QUEUE', 'blue'))
 
 redis_client = redis.Redis(host=os.getenv('REDIS_HOST', 'localhost'), port=int(os.getenv('REDIS_PORT', '6379')), db=0)
 def callback(ch, method, properties, body):
