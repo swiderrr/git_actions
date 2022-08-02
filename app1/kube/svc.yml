@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: app1-svc
+  namespace: kong
+  labels:
+    app: app1-svc
+spec:
+  ports:
+  - port: 8010
+    targetPort: 8010
+    name: http
+    protocol: TCP
+  selector:
+    app: app1

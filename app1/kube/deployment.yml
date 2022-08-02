@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app1
+  namespace: kong
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app1
+  template:
+    metadata:
+      labels:
+        app: app1
+    spec:
+      containers:
+      - name: app1
+        image: karolswidrak/app1:v2.0.4
+        ports:
+        - containerPort: 8010
+        env:
+          - name: RABBITMQ_HOST
+            value: "rabbitmq.kong.svc.cluster.local"
+          - name: RABBITMQ_PORT
+            value: "5672"
+
