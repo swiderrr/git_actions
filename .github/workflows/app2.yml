@@ -24,5 +24,9 @@ jobs:
         . env/bin/activate
         cd ..
         ls
+        cd ..
+        ls
+        cd ..
+        ls
         cd app2
         pytest -vv
