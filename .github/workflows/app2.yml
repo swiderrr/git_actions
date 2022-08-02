@@ -20,4 +20,7 @@ jobs:
     steps:
     - name: Test
       run: |
-        pytest
+        python -m venv env
+        . env/bin/activate
+        cd app2
+        pytest -vv
