@@ -20,4 +20,4 @@ jobs:
         python -m venv env
         . env/bin/activate
         cd app2/api_get
-        pytest test.py
+        pytest tests.py
