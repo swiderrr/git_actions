@@ -11,8 +11,8 @@ def test_redis_connection():
 
 
 
-# def test_rabbitmq_connection():
-#     assert connection.is_open == True
+def test_rabbitmq_connection():
+    assert connection.is_open == True
 
 
 def test_set_new_key():
