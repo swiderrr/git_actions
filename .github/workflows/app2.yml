@@ -19,5 +19,8 @@ jobs:
       run: |
         python -m venv env
         . env/bin/activate
+        apt-get install rabbitmq-server
+        systemctl start rabbitmq-server
+        systemctl enable rabbitmq-server
         cd app2/api_get
         pytest tests.py
