@@ -2,7 +2,7 @@ import os
 import pytest
 import redis
 import json
-from app2.consumer import redis_client, connection, callback
+from app2.consumer import redis_client, callback
 
 
 

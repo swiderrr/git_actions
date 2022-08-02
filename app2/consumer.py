@@ -25,5 +25,5 @@ redis_client = redis.Redis(host=os.getenv('REDIS_HOST', 'localhost'), port=int(o
 
 
 
-print("Started Consuming...")
+#print("Started Consuming...")
 #channel.start_consuming()
