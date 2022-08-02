@@ -19,5 +19,5 @@ jobs:
       run: |
         python -m venv env
         . env/bin/activate
-        cd app2
-        pytest -vv
+        cd app2/api_get
+        pytest test.py
