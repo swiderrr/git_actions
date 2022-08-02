@@ -1,7 +1,7 @@
+import os
 import pytest
 import redis
 import json
-from app2.app2.settings import CONFIG
 from app2.consumer import redis_client, connection, callback
 
 
@@ -16,7 +16,7 @@ def test_rabbitmq_connection():
 
 
 def test_set_new_key():
-    redis_client = redis.Redis(host=CONFIG['redis_host'], port=CONFIG['redis_port'], db=0)
+    redis_client = redis.Redis(host=os.getenv('REDIS_HOST', 'localhost'), port=os.getenv('REDIS_PORT', '6379'), db=0)
     obj = {
         'first_name': 'Test_first_name',
         'last_name': 'Test_last_name',

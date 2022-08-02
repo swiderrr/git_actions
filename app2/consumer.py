@@ -23,4 +23,4 @@ def callback(ch, method, properties, body):
 
 channel.basic_consume(queue=os.getenv('CONSUMER_QUEUE', 'blue'), on_message_callback=callback, auto_ack=True)
 print("Started Consuming...")
-channel.start_consuming()
+#channel.start_consuming()
