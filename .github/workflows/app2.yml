@@ -20,7 +20,7 @@ jobs:
       with:
         redis-version: 7.0
     - name: Start RabbitMQ
-        uses: namoshek/rabbitmq-github-action@v1
+      uses: namoshek/rabbitmq-github-action@v1
         with:
           version: '3.8.9'
           ports: '5672:5672'
