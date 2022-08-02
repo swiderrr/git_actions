@@ -22,6 +22,7 @@ jobs:
       run: |
         python -m venv env
         . env/bin/activate
+        cd ..
         ls
         cd app2
         pytest -vv
