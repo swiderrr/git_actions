@@ -1,0 +1,16 @@
+name: Build and Test
+
+on:
+  push:
+    branches: [main]
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      
+      - name: Build
+      - name: Test with pytest
+        run: |
+          pytest
